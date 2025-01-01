@@ -1,0 +1,54 @@
+.symbolsView {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.symbolsView__content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 16px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.symbolsView__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.symbolsView__chart {
+  background-color: var(--colorWhite);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+  height: 100%;
+}
+
+/* Scrollbar Styling */
+.symbolsView__cards::-webkit-scrollbar {
+  width: 8px;
+}
+
+.symbolsView__cards::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 8px;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .symbolsView__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .symbolsView__chart {
+    order: -1; /* Move chart to the top */
+    width: 100%;
+  }
+}
