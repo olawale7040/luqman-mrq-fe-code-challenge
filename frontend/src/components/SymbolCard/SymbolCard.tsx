@@ -5,6 +5,7 @@ import { ReactComponent as MarketCapIcon } from '@/assets/market_cap.svg';
 import UpArrow from '@/assets/up.png';
 import DownArrow from '@/assets/down.png';
 import { useAppSelector } from '@/hooks/redux';
+import { selectShowCardInfo } from '@/store/dashboardOptionsSlice';
 import ListItem from '@/components/ListItem';
 import { useState, useEffect } from 'react';
 
@@ -20,6 +21,7 @@ const SymbolCard = ({ id, onClick, price, selected, neutral }: SymbolCardProps) 
   const { trend, companyName, industry, marketCap } = useAppSelector(
     (state) => state.stocks.entities[id]
   );
+  const showCardInfo = useAppSelector(selectShowCardInfo);
 
   const [prevPrice, setPrevPrice] = useState(price);
   const [shake, setShake] = useState(false);
@@ -72,13 +74,17 @@ const SymbolCard = ({ id, onClick, price, selected, neutral }: SymbolCardProps) 
           <strong>${price || '--'}</strong>
         </div>
 
-        <ListItem Icon={<CompanyIcon />} label={companyName} spacing="space-between" />
-        <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
-        <ListItem
-          Icon={<MarketCapIcon />}
-          label={`$${marketCap.toLocaleString()}`}
-          spacing="space-between"
-        />
+        {showCardInfo && (
+          <>
+            <ListItem Icon={<CompanyIcon />} label={companyName} spacing="space-between" />
+            <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
+            <ListItem
+              Icon={<MarketCapIcon />}
+              label={`$${marketCap.toLocaleString()}`}
+              spacing="space-between"
+            />
+          </>
+        )}
       </div>
     </div>
   );
