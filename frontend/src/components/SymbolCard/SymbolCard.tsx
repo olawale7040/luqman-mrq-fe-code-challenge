@@ -1,13 +1,10 @@
 import './symbolCard.css';
-import { ReactComponent as CompanyIcon } from '@/assets/company.svg';
-import { ReactComponent as IndustryIcon } from '@/assets/industry.svg';
-import { ReactComponent as MarketCapIcon } from '@/assets/market_cap.svg';
-import UpArrow from '@/assets/up.png';
-import DownArrow from '@/assets/down.png';
 import { useAppSelector } from '@/hooks/redux';
 import { selectShowCardInfo } from '@/store/dashboardOptionsSlice';
-import ListItem from '@/components/ListItem';
 import { useState, useEffect } from 'react';
+import SymbolCardHeader from '@/components/SymbolCard/src/SymbolCardHeader';
+import PriceDisplay from '@/components/SymbolCard/src/PriceDisplay';
+import SymbolCardInfo from '@/components/SymbolCard/src/SymbolCardInfo';
 
 type SymbolCardProps = {
   id: string;
@@ -60,30 +57,12 @@ const SymbolCard = ({ id, onClick, price, selected, neutral }: SymbolCardProps) 
       onClick={handleOnClick}
       className={`symbolCard ${shake ? 'symbolCard__shake' : ''} ${cardClass} ${priceChangeClass}`}
     >
-      <div className="symbolCard__header">
-        <span>{id}</span>
-        {trend === 'UP' ? (
-          <img src={UpArrow} className="symbolCard__trend" alt="Up Arrow" />
-        ) : trend === 'DOWN' ? (
-          <img src={DownArrow} className="symbolCard__trend" alt="Down Arrow" />
-        ) : null}
-      </div>
+      <SymbolCardHeader id={id} trend={trend} />
       <div className="symbolCard__body">
-        <div className="symbolCard__price">
-          <span>PRICE:</span>
-          <strong>${price || '--'}</strong>
-        </div>
+        <PriceDisplay price={price} />
 
         {showCardInfo && (
-          <>
-            <ListItem Icon={<CompanyIcon />} label={companyName} spacing="space-between" />
-            <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
-            <ListItem
-              Icon={<MarketCapIcon />}
-              label={`$${marketCap.toLocaleString()}`}
-              spacing="space-between"
-            />
-          </>
+          <SymbolCardInfo companyName={companyName} industry={industry} marketCap={marketCap} />
         )}
       </div>
     </div>
