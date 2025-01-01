@@ -1,16 +1,77 @@
 .symbolCard {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.symbolCard__header {
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+}
+
+.symbolCard__body{
+  padding: 16px;
+}
+
+.symbolCard__price {
+  margin: 12px 0;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.symbolCard__trend {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.symbolCard__up {
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);  
+}
+
+.symbolCard__down {
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); 
+}
+
+.symbolCard__selected {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.symbolCard--scaleUp {
+  transform: scale(1.02);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
+}
+
+.symbolCard--scaleDown {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.symbolCard--neutral {
+  transform: none;
 }
 
 
 .symbolCard__shake {
   animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
+
 
 @keyframes shake {
   10%,
