@@ -40,11 +40,11 @@
   top: -10px;
 }
 
-.symbolCard__up {
+.symbolCard__price--up {
   box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);  
 }
 
-.symbolCard__down {
+.symbolCard__price--down {
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.7); 
 }
 
