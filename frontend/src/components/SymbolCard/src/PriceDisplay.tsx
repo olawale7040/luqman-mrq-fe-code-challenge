@@ -1,3 +1,4 @@
+import { formatNumber } from '@/utils/format-number';
 import { FC } from 'react';
 
 type PriceDisplayProps = {
@@ -7,7 +8,7 @@ type PriceDisplayProps = {
 const PriceDisplay: FC<PriceDisplayProps> = ({ price }) => (
   <div className="symbolCard__price">
     <span>PRICE:</span>
-    <strong>${price || '--'}</strong>
+    <strong>${formatNumber(price) || '--'}</strong>
   </div>
 );
 

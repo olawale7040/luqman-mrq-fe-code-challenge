@@ -2,6 +2,7 @@ import ListItem from '@/components/ListItem';
 import { ReactComponent as CompanyIcon } from '@/assets/company.svg';
 import { ReactComponent as IndustryIcon } from '@/assets/industry.svg';
 import { ReactComponent as MarketCapIcon } from '@/assets/market_cap.svg';
+import { formatNumber } from '@/utils/format-number';
 
 type CardInfoProps = {
   companyName: string;
@@ -16,7 +17,7 @@ const SymbolCardInfo = ({ companyName, industry, marketCap }: CardInfoProps) => 
       <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
       <ListItem
         Icon={<MarketCapIcon />}
-        label={`$${marketCap.toLocaleString()}`}
+        label={`$${formatNumber(marketCap, 0)}`}
         spacing="space-between"
       />
     </>

@@ -3,6 +3,7 @@ import './highlightedSymbols.css';
 
 import PerformanceCard from '@/components/PerformanceCard';
 import Row from '@/components/Row';
+import { formatNumber } from '@/utils/format-number';
 
 type HighlightedSymbol = {
   trend?: 'UP' | 'DOWN' | null;
@@ -60,7 +61,7 @@ const HighlightedSymbols = () => {
             key={index}
             trend={symbol.trend}
             title={symbol.symbolId}
-            volume={symbol.volume}
+            volume={formatNumber(symbol.volume, 0)}
           />
         );
       })}
