@@ -11,9 +11,14 @@ type PriceChartProps = {
 const PriceChart = ({ symbolId }: PriceChartProps) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (symbolId) {
-      dispatch(fetchPriceHistory(symbolId));
-    }
+    if (!symbolId) return;
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    dispatch(fetchPriceHistory({ symbolId, signal }));
+    return () => {
+      controller.abort();
+    };
   }, [dispatch, symbolId]);
 
   const apiState = useAppSelector(selectors.apiState);

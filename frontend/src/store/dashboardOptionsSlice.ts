@@ -3,13 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 interface StoreState {
   activeSymbol: string | null;
   showCardInfo: boolean;
-  selectedCardId: string | null;
 }
 
 const initialState: StoreState = {
   activeSymbol: '',
-  showCardInfo: true,
-  selectedCardId: null
+  showCardInfo: true
 };
 
 export const dashboardOptionsSlice = createSlice({
@@ -19,16 +17,16 @@ export const dashboardOptionsSlice = createSlice({
     toggleShowCardInfo: (state) => {
       state.showCardInfo = !state.showCardInfo;
     },
-    setSelectedCardId: (state, action) => {
-      state.selectedCardId = action.payload;
+    setActiveSymbol: (state, action) => {
+      state.activeSymbol = action.payload;
     }
   }
 });
 
-export const { toggleShowCardInfo, setSelectedCardId } = dashboardOptionsSlice.actions;
+export const { toggleShowCardInfo, setActiveSymbol } = dashboardOptionsSlice.actions;
 
 export const selectShowCardInfo = (state: { store: StoreState }) => state.store.showCardInfo;
 
-export const selectSelectedCardId = (state: { store: StoreState }) => state.store.selectedCardId;
+export const selectActiveSymbol = (state: { store: StoreState }) => state.store.activeSymbol;
 
 export default dashboardOptionsSlice.reducer;
