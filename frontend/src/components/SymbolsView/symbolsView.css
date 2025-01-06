@@ -1,7 +1,7 @@
 .symbolsView {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 69px);
   padding: 16px;
   box-sizing: border-box;
 }
@@ -20,6 +20,7 @@
   gap: 16px;
   overflow-y: auto;
   padding-right: 8px;
+  background-color: #f5f5f5;
 }
 
 .symbolsView__chart {

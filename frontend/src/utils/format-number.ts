@@ -1,20 +1,18 @@
 const formatterCache = new Map();
 
-function getFormatter(minimumFractionDigits: number, maximumFractionDigits: number) {
-  const cacheKey = `${minimumFractionDigits}-${maximumFractionDigits}`;
+function getFormatter() {
+  const cacheKey = 'defaultFormatter';
   if (formatterCache.has(cacheKey)) {
     return formatterCache.get(cacheKey);
   }
   const formatter = Intl.NumberFormat('en', {
-    notation: 'compact',
-    minimumFractionDigits,
-    maximumFractionDigits
+    notation: 'compact'
   });
   formatterCache.set(cacheKey, formatter);
   return formatter;
 }
 
-export const formatNumber = (number: number, decimalPlaces = 2) => {
-  const formatter = getFormatter(decimalPlaces, decimalPlaces);
+export const formatNumber = (number: number) => {
+  const formatter = getFormatter();
   return formatter.format(number);
 };

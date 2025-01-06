@@ -18,7 +18,7 @@ const SymbolCardInfo = ({ companyName, industry, marketCap }: CardInfoProps) => 
       <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
       <ListItem
         Icon={<MarketCapIcon />}
-        label={`$${formatNumber(marketCap, 0)}`}
+        label={`$${formatNumber(marketCap)}`}
         spacing="space-between"
       />
     </>
