@@ -3,6 +3,7 @@ import { ReactComponent as CompanyIcon } from '@/assets/company.svg';
 import { ReactComponent as IndustryIcon } from '@/assets/industry.svg';
 import { ReactComponent as MarketCapIcon } from '@/assets/market_cap.svg';
 import { formatNumber } from '@/utils/format-number';
+import { memo } from 'react';
 
 type CardInfoProps = {
   companyName: string;
@@ -24,4 +25,4 @@ const SymbolCardInfo = ({ companyName, industry, marketCap }: CardInfoProps) => 
   );
 };
 
-export default SymbolCardInfo;
+export default memo(SymbolCardInfo);

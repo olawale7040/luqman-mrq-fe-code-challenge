@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import UpArrow from '@/assets/up.png';
 import DownArrow from '@/assets/down.png';
 
@@ -21,4 +21,4 @@ const TrendArrow: FC<TrendArrowProps> = ({ trend }) => {
   return getTrendIcon(trend);
 };
 
-export default TrendArrow;
+export default memo(TrendArrow);

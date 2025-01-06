@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import TrendArrow from './TrendArrow';
 
 type SymbolCardHeaderProps = {
@@ -14,4 +15,4 @@ const SymbolCardHeader = ({ id, trend }: SymbolCardHeaderProps) => {
   );
 };
 
-export default SymbolCardHeader;
+export default memo(SymbolCardHeader);
