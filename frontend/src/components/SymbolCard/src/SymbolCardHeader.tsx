@@ -1,4 +1,5 @@
-import { memo } from 'react';
+import './symbolCardHeader.css';
+import { FC, memo } from 'react';
 import TrendArrow from './TrendArrow';
 
 type SymbolCardHeaderProps = {
@@ -6,7 +7,7 @@ type SymbolCardHeaderProps = {
   trend: 'UP' | 'DOWN' | null;
 };
 
-const SymbolCardHeader = ({ id, trend }: SymbolCardHeaderProps) => {
+const SymbolCardHeader: FC<SymbolCardHeaderProps> = ({ id, trend }) => {
   return (
     <div className="symbolCard__header">
       <span>{id}</span>

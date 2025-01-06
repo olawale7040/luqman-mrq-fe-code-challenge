@@ -1,3 +1,4 @@
+import './trendArrow.css';
 import { FC, memo } from 'react';
 import UpArrow from '@/assets/up.png';
 import DownArrow from '@/assets/down.png';
