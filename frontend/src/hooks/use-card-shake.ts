@@ -9,13 +9,14 @@ export const useCardShake = (price: number) => {
     const priceDiff = price - prevPrice;
     const percentageChange = (priceDiff / prevPrice) * 100;
 
+    let newPriceChangeClass = '';
     if (priceDiff > 0) {
-      setPriceChangeClass('symbolCard__price--up');
+      newPriceChangeClass = 'symbolCard__price--up';
     } else if (priceDiff < 0) {
-      setPriceChangeClass('symbolCard__price--down');
-    } else {
-      setPriceChangeClass('');
+      newPriceChangeClass = 'symbolCard__price--down';
     }
+
+    setPriceChangeClass(newPriceChangeClass);
 
     if (percentageChange > 25) {
       setShake(true);

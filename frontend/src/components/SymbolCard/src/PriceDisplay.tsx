@@ -1,5 +1,5 @@
 import { formatNumber } from '@/utils/format-number';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 type PriceDisplayProps = {
   price: number;
@@ -12,4 +12,4 @@ const PriceDisplay: FC<PriceDisplayProps> = ({ price }) => (
   </div>
 );
 
-export default PriceDisplay;
+export default memo(PriceDisplay);
