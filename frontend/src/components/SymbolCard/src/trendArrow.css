@@ -1,0 +1,8 @@
+
+.symbolCard__trend {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}

@@ -1,0 +1,48 @@
+.symbolsView {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 69px);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.symbolsView__content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 16px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.symbolsView__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  overflow-y: auto;
+  padding-right: 8px;
+  background-color: #f5f5f5;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.symbolsView__chart {
+  padding: 12px;
+  height: 100%;
+}
+
+.symbolsView__cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .symbolsView__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .symbolsView__chart {
+    order: -1; /* Move chart to the top */
+    width: 100%;
+  }
+}
